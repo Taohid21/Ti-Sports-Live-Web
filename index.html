@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+    <title>Ti Sports - The Unlimited Entertainment Here</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="drawer-overlay" class="fixed inset-0 bg-black/60 z-[90] hidden"></div>
+    <nav id="nav-drawer" class="fixed top-0 left-0 h-full w-72 max-w-[80vw] bg-gradient-to-b from-[#1a1a1a] to-[#121212] z-[91] flex flex-col transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex items-center gap-4 p-5 border-b border-gray-700/50">
+            <img src="https://tiotv.netlify.app/20251104_204432.png" alt="App Logo" class="w-14 h-14 rounded-full border-2 border-[var(--primary-color)] object-cover">
+            <div>
+                <h2 class="text-2xl font-bold text-white" style="font-family: 'Baloo 2', cursive;">tioTV</h2>
+                <p class="text-xs text-gray-400">Unlimited Entertainment</p>
+            </div>
+        </div>
+        <div class="flex-grow p-4 overflow-y-auto">
+            <div class="space-y-2">
+                 <a href="go:gzone" class="drawer-link text-base"><i class="fas fa-gamepad w-6 text-[var(--primary-color)]"></i><span>Games Zone</span></a>
+                 <a href="go:support" class="drawer-link text-base"><i class="fas fa-headset w-6 text-[var(--primary-color)]"></i><span>User Support</span></a>
+            </div>
+            <hr class="border-gray-700/60 my-4">
+            <div>
+                <div class="text-gray-400 text-sm font-semibold mb-3 px-3">SETTINGS</div>
+                <div class="flex items-center justify-between bg-gray-800/50 rounded-lg px-3 py-2.5">
+                    <label for="autoplay-toggle" class="font-medium text-gray-200">Autoplay Next</label>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="autoplay-toggle" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--primary-color)]"></div>
+                    </label>
+                </div>
+            </div>
+            <hr class="border-gray-700/60 my-4">
+            <div>
+                <div class="text-gray-400 text-sm font-semibold mb-3 px-3">CONNECT WITH US</div>
+                 <a href="https://great-family-tv.github.io/download/" class="drawer-link"><i class="fas fa-globe-americas w-6"></i><span>Visit Website</span></a>
+                 <a href="https://t.me/GreatFamilyTv" class="drawer-link"><i class="fab fa-telegram-plane w-6"></i><span>Join Telegram</span></a>
+                 <a href="#" class="drawer-link"><i class="fas fa-shield-alt w-6"></i><span>Privacy Policy</span></a>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-xs p-4 border-t border-gray-700/50">Version 1.0 | By Taohid Islam</div>
+    </nav>
+
+    <div id="app-shell">
+        <header id="main-header" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 px-4 py-3 flex items-center justify-between bg-gradient-to-b from-black/90 to-transparent">
+            <div class="flex items-center gap-4">
+                <button id="drawer-open-btn" aria-label="Open Menu" class="text-xl text-gray-200 hover:text-white transition-transform hover:scale-110">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="flex items-center gap-2">
+                    <img src="https://tiotv.netlify.app/20251104_204432.png" alt="tioTV" class="w-8 h-8 rounded-full border border-[var(--primary-color)] shadow-[0_0_10px_var(--primary-color)]">
+                    <span class="text-xl font-bold text-white tracking-wide drop-shadow-md" style="font-family: 'Baloo 2', cursive;">tioTV</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-5">
+                <button id="search-open-btn" aria-label="Search" class="text-xl text-gray-200 hover:text-[var(--primary-color)] transition-colors">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <!-- ডিফল্ট প্রোফাইল আইকন (ফিক্সড) -->
+                <a href="account.html" id="user-profile-link" class="w-8 h-8 rounded-full overflow-hidden border border-gray-500 cursor-pointer hover:border-[var(--primary-color)] transition-colors bg-gray-800">
+                    <img id="header-profile-img" 
+                         src="https://img.icons8.com/bubbles/100/user.png" 
+                         alt="Profile" 
+                         class="w-full h-full object-cover p-0.5">
+                </a>
+            </div>
+        </header>
+
+        <main class="w-full pb--10"> 
+            <div id="home-page" class="page-content active">
+                <!-- ব্যানার সেকশন (Gradient Fade সহ) -->
+                <section id="banner-container" class="relative w-full h-[60vw] max-h-[480px] min-h-[250px] bg-[#1a1a1a] mb-6 overflow-hidden">
+                    <div class="shimmer w-full h-full absolute inset-0"></div>
+                    <!-- এই div টি ব্যানারকে ব্যাকগ্রাউন্ডের সাথে মিশিয়ে দেবে -->
+                    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent z-10 pointer-events-none"></div>
+                </section>
+                
+                <div id="home-sections-container" class="space-y-8 px-4 md:px-6"></div>
+            </div>
+
+            <!-- অন্যান্য পেজ -->
+            <div id="livetv-page" class="page-content px-4 md:px-6 pt-24 pb-10">
+                <div id="livetv-category-bar" class="flex overflow-x-auto gap-3 pb-3 mb-4 scrollbar-hide -mx-4 px-4"></div>
+                <div id="livetv-grid-container" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4"></div>
+            </div>
+            <div id="cricket-page" class="page-content space-y-8 px-4 md:px-6 pt-24 pb-10"></div>
+            <div id="movies-page" class="page-content space-y-8 px-4 md:px-6 pt-24 pb-10"></div>
+        </main>
+        
+        <footer class="bg-[#0B0B0B] text-gray-400 pt-10 text-sm mt-auto"></footer>
+    </div>
+    
+    <div id="ad-container">
+        <img src="https://banglarmritshilpo.top/InShot_20251108_225429253.gif" alt="Banner" style="width: 100%; height: auto; display: block;">
+    </div>
+
+    <nav class="bottom-nav">
+        <button data-target="home-page" class="nav-button"><img src="https://www.easykoro.com/inventories/fit-in/600x800/772401184834694.png" alt="Home" class="h-10 w-6"/><span>HOME</span></button>
+        <button data-target="livetv-page" class="nav-button"><img src="https://www.easykoro.com/inventories/fit-in/600x800/772377272974914.png" alt="Live TV" class="h-10 w-6"/><span>LIVE TV</span></button>
+        <button data-target="cricket-page" class="nav-button"><img src="https://www.easykoro.com/inventories/fit-in/600x800/786352897906669.png" alt="Sports" class="h-10 w-6"/><span>SPORTS</span></button>
+        <button data-target="movies-page" class="nav-button"><img src="https://www.easykoro.com/inventories/fit-in/600x800/772144044690327.png" alt="Movies" class="h-10 w-6"/><span>MOVIES</span></button>
+    </nav>
+
+    <div id="grid-page-view">
+        <header class="flex items-center p-4 bg-black/90 backdrop-blur-sm sticky top-0 z-10 border-b border-gray-800"><button id="grid-back-btn" class="text-xl mr-4 hover:text-[var(--primary-color)]"><i class="fas fa-arrow-left"></i></button><h2 id="grid-page-title" class="text-lg font-bold truncate"></h2></header>
+        <main id="grid-page-content" class="p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></main>
+    </div>
+
+    <div id="search-overlay" class="flex-col p-4">
+        <header class="flex items-center w-full mb-4 gap-3">
+            <button id="search-back-btn" class="text-2xl text-gray-300"><i class="fas fa-arrow-left"></i></button>
+            <input id="search-input" type="text" placeholder="Search" class="w-full bg-[#1a1a1a] text-lg text-white rounded-full py-2.5 pl-5 pr-24 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]">
+            <div class="absolute inset-y-0 right-0 flex items-center pr-4 gap-3">
+                <button id="search-clear-btn" class="text-xl text-gray-400 hidden"><i class="fas fa-times-circle"></i></button>
+                <button id="voice-search-btn" class="text-xl text-gray-300"><i class="fa-solid fa-microphone"></i></button>
+            </div>
+        </header>
+        <main id="search-results-container" class="w-full flex-1 overflow-y-auto pr-2 scrollbar-hide">
+            <div id="top-searches-container">
+                <h3 class="text-lg font-bold text-white mb-4"><i class="fas fa-fire text-[var(--primary-color)]"></i> Top Searches</h3>
+                <div id="top-searches-pills" class="flex flex-wrap gap-3"></div>
+            </div>
+            <div id="search-results-list" class="hidden"></div>
+            <div id="search-no-results" class="text-center text-gray-500 mt-10 hidden">No results found.</div>
+        </main>
+    </div>
+
+    <div id="player-page-view">
+         <header class="p-4 bg-black/90 backdrop-blur-sm sticky top-0 z-20 flex items-center"><button id="player-back-btn" class="text-xl mr-4 hover:text-[var(--primary-color)]"><i class="fas fa-arrow-left"></i></button><h2 id="player-page-title-header" class="text-lg font-bold truncate"></h2></header>
+        <section id="player-container" class="w-full bg-black">
+            <div id="player-wrapper"><div class="player-content"><i class="fas fa-spinner fa-spin text-4xl text-gray-500"></i></div></div>
+        </section>
+        <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section id="action-bar" class="py-4 flex flex-wrap gap-4 items-center justify-between text-gray-400 border-b border-gray-800"><div class="flex items-center space-x-6"><button id="like-btn" class="action-btn flex items-center space-x-2"><i class="far fa-thumbs-up text-xl"></i><span id="like-count">0</span></button><button id="dislike-btn" class="action-btn flex items-center space-x-2"><i class="far fa-thumbs-down text-xl"></i><span id="dislike-count">0</span></button><button id="comment-btn" class="action-btn flex items-center space-x-2"><i class="far fa-comment-alt text-xl"></i><span>Comment</span></button></div><button id="report-btn" class="action-btn flex items-center space-x-2"><i class="far fa-flag text-xl"></i><span>Report</span></button></section>
+            <section id="movie-info" class="py-6"></section>
+            <section id="related-content" class="py-6"><h3 id="related-title" class="text-white text-lg font-semibold mb-3"></h3><div id="related-content-container" class="flex items-start space-x-4 overflow-x-auto scrollbar-hide pb-2"></div></section>
+        </main>
+        <section id="comment-section" class="flex flex-col"><header class="p-4 border-b border-gray-700 flex justify-between items-center"><h3 class="text-lg font-semibold">Comments</h3><button id="close-comments-btn" class="text-2xl hover:text-white text-gray-400">×</button></header><div id="comments-list" class="flex-grow p-4 overflow-y-auto"></div><form id="comment-form" class="p-4 border-t border-gray-700 flex items-center"><input id="comment-input" type="text" class="w-full bg-gray-800 text-white rounded-l-md p-2 focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="Add a comment..."><button type="submit" class="bg-green-600 text-white p-2 rounded-r-md hover:bg-green-700">Send</button></form></section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
